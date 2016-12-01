@@ -1,7 +1,5 @@
 package com.hizkifw.randventure.game;
 
-import com.hizkifw.randventure.game.enemy.Enemy;
-
 public abstract class Player extends LivingEntity {
 	public String name = "Player";
 	
