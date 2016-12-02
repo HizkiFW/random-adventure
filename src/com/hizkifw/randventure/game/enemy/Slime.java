@@ -4,6 +4,7 @@ public class Slime extends Enemy {
 	public Slime() {
 		this.name = "Slime";
 		this.difficulty = 1;
+		this.isPhysical = true;
 		this.healthMax = 2;
 		this.health = 2;
 		this.attack = 1;

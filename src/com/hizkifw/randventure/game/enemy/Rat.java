@@ -4,6 +4,7 @@ public class Rat extends Enemy {
 	public Rat() {
 		this.name = "Rat";
 		this.difficulty = 1;
+		this.isPhysical = true;
 		this.healthMax = 2;
 		this.health = 2;
 		this.attack = 2;

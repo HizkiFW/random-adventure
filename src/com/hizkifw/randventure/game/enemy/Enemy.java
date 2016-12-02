@@ -4,4 +4,5 @@ import com.hizkifw.randventure.game.LivingEntity;
 
 public abstract class Enemy extends LivingEntity {
 	public int difficulty;
+	public boolean isPhysical;
 }
