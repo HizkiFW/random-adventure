@@ -86,6 +86,10 @@ public class ConsoleDisplay {
 			println("");
 			break;
 			
+		case MAP:
+			
+			break;
+			
 		default:
 			break;
 		}

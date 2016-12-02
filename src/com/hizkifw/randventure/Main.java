@@ -16,14 +16,13 @@ public class Main {
 		state.player = new Player();
 		state.currentPlace = new Place("Hometown", new Coordinate(0, 0));
 		state.map = new Map(state.currentPlace);
+		state.currentScene = Scene.MENU;
 		
 		try {
 			SaveLoad.saveObject(state, "new.ser");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		state.currentScene = Scene.MENU;
 		
 		while(true) {
 			drawCurrentScene();
@@ -47,8 +46,9 @@ public class Main {
 			else {
 				try {
 					state = (CurrentState) SaveLoad.loadObject(fname);
+					ConsoleDisplay.input("Save file loaded.");
 				} catch(Exception e) {
-					ConsoleDisplay.input("Unable to load file");
+					ConsoleDisplay.input("Unable to load file.");
 				}
 			}
 		}
