@@ -1,6 +1,7 @@
 package com.hizkifw.randventure;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ConsoleDisplay {
 	public static String printBuffer = "";
@@ -70,6 +71,18 @@ public class ConsoleDisplay {
 			println(" [ 2 ] Load saved");
 			println("");
 			println(" [ x ] Exit");
+			println("");
+			break;
+			
+		case LOAD_GAME:
+			println("");
+			println(" Saves:");
+			List<String> saveFiles = SaveLoad.listFiles();
+			for(String filename:saveFiles) {
+				println("   - " + filename);
+			}
+			println("");
+			println(" [ x ] Cancel");
 			println("");
 			break;
 			

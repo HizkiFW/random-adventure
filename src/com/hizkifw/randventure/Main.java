@@ -17,26 +17,40 @@ public class Main {
 		state.currentPlace = new Place("Hometown", new Coordinate(0, 0));
 		state.map = new Map(state.currentPlace);
 		
-		state.currentScene = Scene.MENU;
-		drawCurrentScene();
-		
 		try {
-			SaveLoad.saveObject(state, "test.ser");
+			SaveLoad.saveObject(state, "new.ser");
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+		state.currentScene = Scene.MENU;
+		
+		while(true) {
+			drawCurrentScene();
 		}
 	}
 	
 	public static void drawCurrentScene() {
 		ConsoleDisplay.printOut(state.currentScene);
-		String choice = ConsoleDisplay.input("> ");
-		if(state.currentScene == Scene.MENU) { 
+		if(state.currentScene == Scene.MENU) {
+			String choice = ConsoleDisplay.input("> ");
 			if(choice.equals("1"))
 				state.currentScene = Scene.STORY;
-			else if(state.equals("2"))
+			else if(choice.equals("2"))
 				state.currentScene = Scene.LOAD_GAME;
-			else if(state.equals("x"))
+			else if(choice.equals("x"))
 				System.exit(0);
+		} else if(state.currentScene == Scene.LOAD_GAME) {
+			String fname = ConsoleDisplay.input("File name> ");
+			if(fname.equals("x"))
+				state.currentScene = Scene.MENU;
+			else {
+				try {
+					state = (CurrentState) SaveLoad.loadObject(fname);
+				} catch(Exception e) {
+					ConsoleDisplay.input("Unable to load file");
+				}
+			}
 		}
 	}
 }

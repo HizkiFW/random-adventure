@@ -9,13 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SaveLoad {
-	public static String base = System.getProperty("user.home") + "/randventure/";
+	public static String base = System.getProperty("user.home") + "/.randventure/";
 	
 	public static void createDirs() {
 		new File(base).mkdirs();
 	}
 	
 	public static List<String> listFiles() {
+		createDirs();
+		
 		List<String> listNames = new ArrayList<>();
 		File dir = new File(base);
 		File[] files = dir.listFiles();
