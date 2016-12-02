@@ -5,10 +5,10 @@ public class Place implements java.io.Serializable {
 
 	public String name;
 	
-	public Place dirNorth;
-	public Place dirSouth;
-	public Place dirEast;
-	public Place dirWest;
+	public Coordinate dirNorth;
+	public Coordinate dirSouth;
+	public Coordinate dirEast;
+	public Coordinate dirWest;
 	
 	public Coordinate pos;
 	public int elevation;
