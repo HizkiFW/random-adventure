@@ -21,7 +21,7 @@ public class Main {
 		drawCurrentScene();
 		
 		try {
-			//SaveLoad.saveObject(state, "D:/test.ser");
+			SaveLoad.saveObject(state, "test.ser");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -30,11 +30,13 @@ public class Main {
 	public static void drawCurrentScene() {
 		ConsoleDisplay.printOut(state.currentScene);
 		String choice = ConsoleDisplay.input("> ");
-		if(choice.equals("1"))
-			state.currentScene = Scene.STORY;
-		else if(state.equals("2"))
-			state.currentScene = Scene.LOAD_GAME;
-		else if(state.equals("x"))
-			System.exit(0);
+		if(state.currentScene == Scene.MENU) { 
+			if(choice.equals("1"))
+				state.currentScene = Scene.STORY;
+			else if(state.equals("2"))
+				state.currentScene = Scene.LOAD_GAME;
+			else if(state.equals("x"))
+				System.exit(0);
+		}
 	}
 }
