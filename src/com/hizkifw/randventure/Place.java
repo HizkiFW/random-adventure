@@ -1,6 +1,8 @@
 package com.hizkifw.randventure;
 
-public class Place {
+public class Place implements java.io.Serializable {
+	private static final long serialVersionUID = 2811755159514952634L;
+
 	public String name;
 	
 	public Place dirNorth;

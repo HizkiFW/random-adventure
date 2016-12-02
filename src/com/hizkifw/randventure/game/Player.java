@@ -1,6 +1,8 @@
 package com.hizkifw.randventure.game;
 
-public class Player extends LivingEntity {
+public class Player extends LivingEntity implements java.io.Serializable {
+	private static final long serialVersionUID = 5115881810693433148L;
+
 	public String name = "Player";
 	
 	public int health = 100;
