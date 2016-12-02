@@ -28,5 +28,6 @@ public class ConsoleDisplay {
 		System.out.println(generateSequence("-", WIDTH));
 		System.out.println(centerText("Random Adventure"));
 		System.out.println(generateSequence("-", WIDTH));
+		
 	}
 }

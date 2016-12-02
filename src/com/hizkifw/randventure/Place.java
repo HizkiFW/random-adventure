@@ -10,4 +10,9 @@ public class Place {
 	
 	public Coordinate pos;
 	public int elevation;
+	
+	public Place(String name, Coordinate coords) {
+		this.name = name;
+		this.pos = coords;
+	}
 }

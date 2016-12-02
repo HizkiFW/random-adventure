@@ -1,6 +1,6 @@
 package com.hizkifw.randventure.game;
 
-public abstract class Player extends LivingEntity {
+public class Player extends LivingEntity {
 	public String name = "Player";
 	
 	public int health = 100;
