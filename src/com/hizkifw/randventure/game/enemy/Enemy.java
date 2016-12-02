@@ -3,5 +3,5 @@ package com.hizkifw.randventure.game.enemy;
 import com.hizkifw.randventure.game.LivingEntity;
 
 public abstract class Enemy extends LivingEntity {
-	public static String name;
+	public int difficulty;
 }
