@@ -44,6 +44,13 @@ public class ConsoleDisplay {
 			e.printStackTrace();
 		}
 	}
+	public static void slowprint(String text, long interval) throws InterruptedException {
+		String[] chars = text.split("");
+		for(int i = 0; i < chars.length; i++) {
+			System.out.print(chars[i]);
+			Thread.sleep(interval);
+		}
+	}
 	public static void print(String text) {
 		printBuffer += text;
 	}
@@ -84,6 +91,10 @@ public class ConsoleDisplay {
 			println("");
 			println(" [ x ] Cancel");
 			println("");
+			break;
+			
+		case STORY:
+			
 			break;
 			
 		case MAP:
