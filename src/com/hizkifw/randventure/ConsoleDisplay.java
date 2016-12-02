@@ -8,6 +8,9 @@ public class ConsoleDisplay {
 	public static enum Scene {
 		TITLE,
 		MENU,
+		LOAD_GAME,
+		SAVE_GAME,
+		STORY,
 		INVENTORY,
 		SHOP,
 		MAP,
@@ -23,6 +26,14 @@ public class ConsoleDisplay {
 			retval += chr;
 		}
 		return retval;
+	}
+	
+	public static String input() {
+		return System.console().readLine();
+	}
+	public static String input(String prompt) {
+		System.out.print(prompt);
+		return System.console().readLine();
 	}
 	
 	public static void clearConsole() {
@@ -53,7 +64,13 @@ public class ConsoleDisplay {
 			break;
 			
 		case MENU:
-			
+			println("");
+			println(" Menu");
+			println(" [ 1 ] New Game");
+			println(" [ 2 ] Load saved");
+			println("");
+			println(" [ x ] Exit");
+			println("");
 			break;
 			
 		default:
