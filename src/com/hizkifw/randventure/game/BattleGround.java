@@ -22,7 +22,7 @@ public class BattleGround {
 		
 		for(double i = 0; i < n; i++) {
 			try {
-				int enemyDifficulty = ThreadLocalRandom.current().nextInt(1, difficulty + 1);
+				int enemyDifficulty = ThreadLocalRandom.current().nextInt(difficulty + 1);
 				
 				List<Class<?>> listLevel = el.listOnLevel(enemyDifficulty);
 				Constructor<?> cEnemy = listLevel.get(ThreadLocalRandom.current().nextInt(listLevel.size()))
