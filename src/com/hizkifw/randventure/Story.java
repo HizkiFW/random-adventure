@@ -1,5 +1,7 @@
 package com.hizkifw.randventure;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Story {
 	public boolean hasItems;
 	public boolean hasEnemies;
@@ -42,5 +44,12 @@ public class Story {
 		default:
 			break;
 		}
+	}
+	
+	public void generateDirections() {
+		canGoNorth = ThreadLocalRandom.current().nextInt(2) == 0;
+		canGoSouth = ThreadLocalRandom.current().nextInt(2) == 0;
+		canGoEast = ThreadLocalRandom.current().nextInt(2) == 0;
+		canGoWest = ThreadLocalRandom.current().nextInt(2) == 0;
 	}
 }
