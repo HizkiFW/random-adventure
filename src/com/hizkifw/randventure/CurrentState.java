@@ -8,4 +8,5 @@ public class CurrentState implements java.io.Serializable {
 	public Player player;
 	public Map map;
 	public Place currentPlace;
+	public StoryChain story;
 }

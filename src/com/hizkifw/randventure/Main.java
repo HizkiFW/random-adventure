@@ -46,6 +46,9 @@ public class Main {
 			else {
 				try {
 					state = (CurrentState) SaveLoad.loadObject(fname);
+					if(state.currentScene == Scene.MENU)
+						state.currentScene = Scene.STORY;
+					
 					ConsoleDisplay.input("Save file loaded.");
 				} catch(Exception e) {
 					ConsoleDisplay.input("Unable to load file.");
