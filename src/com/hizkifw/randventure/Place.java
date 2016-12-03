@@ -4,6 +4,7 @@ public class Place implements java.io.Serializable {
 	private static final long serialVersionUID = 2811755159514952634L;
 
 	public String name;
+	public String particle; // "A", "An", "The", etc.
 	
 	public Coordinate dirNorth;
 	public Coordinate dirSouth;

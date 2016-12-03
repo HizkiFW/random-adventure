@@ -13,8 +13,8 @@ public class Story {
 	public Narration narration;
 	
 	public static enum StoryType {
-		INTRODUCTION,
 		FILLER,
+		INTERACTION,
 		MINOR_CONFLICT,
 		MAJOR_CONFLICT
 	}
@@ -23,13 +23,24 @@ public class Story {
 		GO_SOUTH,
 		GO_EAST,
 		GO_WEST,
+		
 		TAKE_ITEM,
 		USE_ITEM,
-		DISCARD_ITEM
+		DISCARD_ITEM,
 		
+		FIGHT,
+		FLEE
 	}
 	
 	public Story(StoryType type) {
-		
+		narration = new Narration();
+		switch(type) {
+		case FILLER:
+			narration.addText("Once upon a time", 200);
+			break;
+			
+		default:
+			break;
+		}
 	}
 }
