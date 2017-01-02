@@ -1,6 +1,8 @@
 package com.hizkifw.randventure;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 public class ConsoleDisplay {
@@ -22,12 +24,23 @@ public class ConsoleDisplay {
 	}
 
 	public static String input() {
-		return System.console().readLine();
+		try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			return br.readLine();
+		} catch(Exception e) {
+			e.printStackTrace();
+
+			// Just exit. You can't play a game without inputs.
+			System.exit(1);
+		}
+		//return System.console().readLine();
+		return null;
 	}
 
 	public static String input(String prompt) {
 		System.out.print(prompt);
-		return System.console().readLine();
+		//return System.console().readLine();
+		return input();
 	}
 
 	public static void clearConsole() {
@@ -92,7 +105,24 @@ public class ConsoleDisplay {
 				break;
 
 			case STORY:
+				println("");
+				println(centerText("[ STORY MODE ]"));
+				println("");
+				flush();
 
+				Story currentStory = Main.state.story.stories.get(Main.state.story.stories.size() - 1);
+
+				while(true) {
+					Tuple<String, Integer> narrative = currentStory.narration.getNext();
+					if(narrative == null) break;
+
+					try {
+						slowprint(narrative.x, narrative.y);
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+				println("");
 				break;
 
 			case MAP:

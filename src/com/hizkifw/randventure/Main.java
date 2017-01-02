@@ -37,9 +37,6 @@ public class Main {
 	}
 
 	public static void drawCurrentScene() {
-		if(state.currentScene == Scene.STORY)
-			generateStory();
-
 		ConsoleDisplay.printOut(state.currentScene);
 
 		if(state.currentScene == Scene.MENU) {
@@ -67,7 +64,11 @@ public class Main {
 				}
 			}
 		} else if(state.currentScene == Scene.STORY) {
+			String input = ConsoleDisplay.input("Choice> ");
 
+			//TODO: Stuff.
+
+			generateStory();
 		}
 	}
 
