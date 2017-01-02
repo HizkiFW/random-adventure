@@ -7,19 +7,20 @@ public abstract class LivingEntity {
 	public int attack;
 	public int defense;
 	public int speed;
-	
+
 	public boolean isDead() {
 		return health <= 0;
 	}
-	
+
 	public boolean attack(int power, LivingEntity target) {
 		return target.getAttacked(power);
 	}
+
 	public boolean getAttacked(int damage) {
 		if(damage > defense)
 			health -= damage - defense;
 		if(health < 0) health = 0;
-		
+
 		return health > 0;
 	}
 }

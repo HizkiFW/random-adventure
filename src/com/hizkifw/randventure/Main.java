@@ -1,6 +1,6 @@
 /**
  * RandVenture - A randomly-generated text-based adventure RPG
- * 
+ * <p>
  * Copyright 2016 Hizkia Felix
  */
 package com.hizkifw.randventure;
@@ -10,25 +10,25 @@ import com.hizkifw.randventure.game.Player;
 
 public class Main {
 	public static CurrentState state;
-	
+
 	public static void main(String[] args) {
 		state = new CurrentState();
 		state.player = new Player();
 		state.currentPlace = new Place("Hometown", new Coordinate(0, 0));
 		state.map = new Map(state.currentPlace);
 		state.currentScene = Scene.MENU;
-		
+
 		try {
 			SaveLoad.saveObject(state, "new.ser");
-		} catch (Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		while(true) {
 			drawCurrentScene();
 		}
 	}
-	
+
 	public static void drawCurrentScene() {
 		ConsoleDisplay.printOut(state.currentScene);
 		if(state.currentScene == Scene.MENU) {
@@ -48,12 +48,15 @@ public class Main {
 					state = (CurrentState) SaveLoad.loadObject(fname);
 					if(state.currentScene == Scene.MENU)
 						state.currentScene = Scene.STORY;
-					
+
 					ConsoleDisplay.input("Save file loaded.");
 				} catch(Exception e) {
 					ConsoleDisplay.input("Unable to load file.");
+					e.printStackTrace();
 				}
 			}
+		} else if(state.currentScene == Scene.STORY) {
+
 		}
 	}
 }

@@ -5,15 +5,15 @@ public class Place implements java.io.Serializable {
 
 	public String name;
 	public String particle; // "A", "An", "The", etc.
-	
+
 	public Coordinate dirNorth;
 	public Coordinate dirSouth;
 	public Coordinate dirEast;
 	public Coordinate dirWest;
-	
+
 	public Coordinate pos;
 	public int elevation;
-	
+
 	public Place(String name, Coordinate coords) {
 		this.name = name;
 		this.pos = coords;
