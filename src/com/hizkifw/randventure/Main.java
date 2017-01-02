@@ -8,29 +8,40 @@ package com.hizkifw.randventure;
 import com.hizkifw.randventure.ConsoleDisplay.Scene;
 import com.hizkifw.randventure.game.Player;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Main {
 	public static CurrentState state;
 
 	public static void main(String[] args) {
+		// Initialize game state
 		state = new CurrentState();
 		state.player = new Player();
 		state.currentPlace = new Place("Hometown", new Coordinate(0, 0));
 		state.map = new Map(state.currentPlace);
+		Story start = new Story(Story.StoryType.FILLER);
+		state.story = new StoryChain(start);
 		state.currentScene = Scene.MENU;
 
+		// Save initialized state to file (for debugging purposes)
 		try {
 			SaveLoad.saveObject(state, "new.ser");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 
+		// Start game loop
 		while(true) {
 			drawCurrentScene();
 		}
 	}
 
 	public static void drawCurrentScene() {
+		if(state.currentScene == Scene.STORY)
+			generateStory();
+
 		ConsoleDisplay.printOut(state.currentScene);
+
 		if(state.currentScene == Scene.MENU) {
 			String choice = ConsoleDisplay.input("> ");
 			if(choice.equals("1"))
@@ -58,5 +69,18 @@ public class Main {
 		} else if(state.currentScene == Scene.STORY) {
 
 		}
+	}
+
+	public static void generateStory() {
+		float rand = ThreadLocalRandom.current().nextFloat();
+		Story story;
+		if(rand < 0.05f)
+			story = new Story(Story.StoryType.MAJOR_CONFLICT);
+		else if(rand < 0.25f)
+			story = new Story(Story.StoryType.MINOR_CONFLICT);
+		else
+			story = new Story(Story.StoryType.INTERACTION);
+
+		state.story.stories.add(story);
 	}
 }

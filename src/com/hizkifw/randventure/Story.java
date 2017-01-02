@@ -16,16 +16,37 @@ public class Story {
 
 	public Story(StoryType type) {
 		narration = new Narration();
+		generateDirections();
+
+		boolean canNavigate = true;
 		switch(type) {
 			case FILLER:
-				narration.addText("Once upon a time", 200);
+				narration.addText("Once upon a time...", 200);
 				break;
 
 			case INTERACTION:
-
+				// TODO: Improve.
+				if(this.hasItems)
+					narration.addText("You found something [take].", 200);
+				if(this.hasEnemies)
+					narration.addText("You encounter some enemies [fight | flee].", 300);
+				if(this.hasSavePoint)
+					narration.addText("You see a save point [save].", 200);
+				break;
 
 			default:
 				break;
+		}
+
+		if(canNavigate) {
+			if(this.canGoNorth)
+				narration.addText("You see a path towards the [north].", 200);
+			if(this.canGoSouth)
+				narration.addText("You see a path towards the [south].", 200);
+			if(this.canGoEast)
+				narration.addText("You see a path towards the [east].", 200);
+			if(this.canGoWest)
+				narration.addText("You see a path towards the [west].", 200);
 		}
 	}
 
