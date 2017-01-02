@@ -21,7 +21,7 @@ public class Narration {
 
 	public Tuple<String, Integer> getNext() {
 		progress++;
-		if(progress > narrative.size()) return null;
+		if(progress > narrative.size() - 1) return null;
 		return narrative.get(progress);
 	}
 }

@@ -27,11 +27,11 @@ public class Story {
 			case INTERACTION:
 				// TODO: Improve.
 				if(this.hasItems)
-					narration.addText("You found something [take].", 200);
+					narration.addText("You found something [take].", 50);
 				if(this.hasEnemies)
-					narration.addText("You encounter some enemies [fight | flee].", 300);
+					narration.addText("You encounter some enemies [fight | flee].", 25);
 				if(this.hasSavePoint)
-					narration.addText("You see a save point [save].", 200);
+					narration.addText("You see a save point [save].", 50);
 				break;
 
 			default:
@@ -40,13 +40,13 @@ public class Story {
 
 		if(canNavigate) {
 			if(this.canGoNorth)
-				narration.addText("You see a path towards the [north].", 200);
+				narration.addText("You see a path towards the [north].", 50);
 			if(this.canGoSouth)
-				narration.addText("You see a path towards the [south].", 200);
+				narration.addText("You see a path towards the [south].", 50);
 			if(this.canGoEast)
-				narration.addText("You see a path towards the [east].", 200);
+				narration.addText("You see a path towards the [east].", 50);
 			if(this.canGoWest)
-				narration.addText("You see a path towards the [west].", 200);
+				narration.addText("You see a path towards the [west].", 50);
 		}
 	}
 
