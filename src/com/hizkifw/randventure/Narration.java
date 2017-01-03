@@ -12,7 +12,7 @@ public class Narration {
 	}
 
 	public void addText(String text, Integer duration) {
-		narrative.add(new Tuple<String, Integer>(text, duration));
+		narrative.add(new Tuple<String, Integer>(text + "\n", duration));
 	}
 
 	public void addPause() {
