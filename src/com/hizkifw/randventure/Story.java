@@ -26,11 +26,11 @@ public class Story {
 
 			case INTERACTION:
 				// TODO: Improve.
-				if(this.hasItems)
+				if(hasItems)
 					narration.addText("You found something [take].", 50);
-				if(this.hasEnemies)
+				if(hasEnemies)
 					narration.addText("You encounter some enemies [fight | flee].", 25);
-				if(this.hasSavePoint)
+				if(hasSavePoint)
 					narration.addText("You see a save point [save].", 50);
 				break;
 
@@ -39,13 +39,13 @@ public class Story {
 		}
 
 		if(canNavigate) {
-			if(this.canGoNorth)
+			if(canGoNorth)
 				narration.addText("You see a path towards the [north].", 50);
-			if(this.canGoSouth)
+			if(canGoSouth)
 				narration.addText("You see a path towards the [south].", 50);
-			if(this.canGoEast)
+			if(canGoEast)
 				narration.addText("You see a path towards the [east].", 50);
-			if(this.canGoWest)
+			if(canGoWest)
 				narration.addText("You see a path towards the [west].", 50);
 		}
 	}
@@ -55,6 +55,10 @@ public class Story {
 		canGoSouth = ThreadLocalRandom.current().nextInt(2) == 0;
 		canGoEast = ThreadLocalRandom.current().nextInt(2) == 0;
 		canGoWest = ThreadLocalRandom.current().nextInt(2) == 0;
+	}
+	public void generateStuffs() {
+		//TODO: Generate interaction stuff (items etc)
+
 	}
 
 	public static enum StoryType {
